@@ -27,11 +27,11 @@
   <description>Testing framework for guice managed services which use HttpServletRequest, HttpServletResponse, HttpSession, etc.</description>
   <dependencies>
     <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
+      <groupId>org.sonatype.sisu</groupId>
+      <artifactId>sisu-guice</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.google.inject.extensions</groupId>
+      <groupId>org.sonatype.sisu.inject</groupId>
       <artifactId>guice-servlet</artifactId>
     </dependency>
     <dependency>

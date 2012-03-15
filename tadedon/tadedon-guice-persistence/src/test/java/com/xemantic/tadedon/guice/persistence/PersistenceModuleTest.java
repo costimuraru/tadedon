@@ -357,7 +357,6 @@ public class PersistenceModuleTest {
 		return Guice.createInjector(new PersistenceModule(), new AbstractModule() {
 			@Override
 			protected void configure() {
-				bind(Logger.class).toInstance(LoggerFactory.getLogger(PersistenceModuleTest.class));
 				bind(EntityManagerFactory.class).toInstance(emf);
 			}
 		});

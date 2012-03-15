@@ -45,16 +45,12 @@
       <artifactId>gin</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.google.inject.extensions</groupId>
+      <groupId>org.sonatype.sisu.inject</groupId>
       <artifactId>guice-servlet</artifactId>
     </dependency>
     <dependency>
       <groupId>org.antlr</groupId>
       <artifactId>stringtemplate</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
     </dependency>
 
     <!-- test dependencies -->
@@ -88,7 +84,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>2.1.0-1</version>
+        <version>2.4.0</version>
         <configuration>
           <includes>**/*GwtTestSuite.java</includes>
         </configuration>

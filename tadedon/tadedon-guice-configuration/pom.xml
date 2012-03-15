@@ -21,7 +21,6 @@
     <artifactId>tadedon</artifactId>
     <version>1.3-SNAPSHOT</version>
   </parent>
-  <groupId>com.xemantic.tadedon</groupId>
   <artifactId>tadedon-guice-configuration</artifactId>
   <name>tadedon-guice-configuration</name>
   <description>Guice support for tadedon-configuration</description>
@@ -31,10 +30,10 @@
       <artifactId>tadedon-configuration</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
+      <groupId>org.sonatype.sisu</groupId>
+      <artifactId>sisu-guice</artifactId>
     </dependency>
-    
+
     <!-- test dependences -->
     <dependency>
       <groupId>junit</groupId>
