@@ -140,10 +140,11 @@
           </uploads>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
-  <reporting>
-    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.2.2</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -159,7 +160,7 @@
         </configuration>
       </plugin>
     </plugins>
-  </reporting>
+  </build>
   <scm>
     <connection>scm:git:https://code.google.com/p/tadedon/</connection>
     <developerConnection>scm:git:https://code.google.com/p/tadedon/</developerConnection>
