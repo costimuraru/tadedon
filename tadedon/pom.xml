@@ -75,6 +75,7 @@
     <module>tadedon-gwt-dev</module>
     <module>tadedon-gwt-rpc-mock</module>
     <!--<module>tadedon-showcase</module>-->
+    <module>tadedon-gwt-jquery</module>
   </modules>
   <build>
     <plugins>
@@ -221,6 +222,11 @@
       <dependency>
         <groupId>com.xemantic.tadedon</groupId>
         <artifactId>tadedon-gwt-rpc-mock</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.xemantic.tadedon</groupId>
+        <artifactId>tadedon-gwt-jquery</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
