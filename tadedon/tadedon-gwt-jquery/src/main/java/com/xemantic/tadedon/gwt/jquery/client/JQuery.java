@@ -33,6 +33,16 @@ public final class JQuery {
 
   /**
    * Scrolls window top to given {@code offset} with smooth animation which
+   * will take the {@link Duration#MEDIUM} to finish.
+   *
+   * @param offset the offset to scroll to.
+   */
+  public static void scrollTop(int offset) {
+    scrollTop(offset, Duration.MEDIUM);
+  }
+
+  /**
+   * Scrolls window top to given {@code offset} with smooth animation which
    * will take the {@code duration} to finish.
    *
    * @param offset the offset to scroll to.
@@ -49,15 +59,36 @@ public final class JQuery {
    * @param offset the offset to scroll to.
    * @param duration the animation duration.
    */
-  public static native void scrollTop(
-      int offset,
-      int duration)
+  public static void scrollTop(int offset, int duration) {
+    scrollTop(offset, String.valueOf(duration));
+  }
+
+  /**
+   * Scrolls window top to given {@code offset} with smooth animation which
+   * will take the {@code duration} to finish.
+   *
+   * @param offset the offset to scroll to.
+   * @param duration the animation duration.
+   */
+  public static native void scrollTop(int offset, String duration)
   /*-{
-    $wnd.$('html, body').animate(
-        { scrollTop: offset },
-        duration,
-        function() {callback.@java.lang.Runnable::run()();});
+    $wnd.$('html, body').animate({ scrollTop: offset }, duration);
   }-*/;
+
+  /**
+   * Scrolls window top to given {@code offset} with smooth animation which
+   * will take the {@link Duration#MEDIUM} to finish and the {@code callback}
+   * will be executed then.
+   *
+   * @param offset the offset to scroll to.
+   * @param callback the callback to execute when animation is finished.
+   */
+  public static void scrollTop(
+      int offset,
+      Runnable callback) {
+
+    scrollTop(offset, Duration.MEDIUM, callback);
+  }
 
   /**
    * Scrolls window top to given {@code offset} with smooth animation which
@@ -73,7 +104,24 @@ public final class JQuery {
       Duration duration,
       Runnable callback) {
 
-    scrollTop(offset, duration.getMilliseconds());
+    scrollTop(offset, duration.getMilliseconds(), callback);
+  }
+
+  /**
+   * Scrolls window top to given {@code offset} with smooth animation which
+   * will take the {@code duration} to finish and the {@code callback} will be
+   * executed then.
+   *
+   * @param offset the offset to scroll to.
+   * @param duration the animation duration.
+   * @param callback the callback to execute when animation is finished.
+   */
+  public static void scrollTop(
+      int offset,
+      int duration,
+      Runnable callback) {
+
+    scrollTop(offset, String.valueOf(duration), callback);
   }
 
   /**
@@ -87,7 +135,7 @@ public final class JQuery {
    */
   public static native void scrollTop(
       int offset,
-      int duration,
+      String duration,
       Runnable callback)
   /*-{
     $wnd.$('html, body').animate(
