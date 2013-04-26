@@ -27,8 +27,8 @@
   <description>Extensions to Google guava</description>
   <dependencies>
     <dependency>
-      <groupId>org.sonatype.sisu</groupId>
-      <artifactId>sisu-guava</artifactId>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
