@@ -15,8 +15,8 @@
  */
 package com.xemantic.tadadon.guava.jar;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 import java.util.jar.Manifest;
 
@@ -43,7 +43,9 @@ public class ManifestsTest {
 		Manifest manifest = Manifests.getManifest(guavaClass);
 
 		// then
-		assertThat(manifest.getMainAttributes().getValue("Created-By"), is("Apache Maven"));
+		assertThat(
+		    manifest.getMainAttributes().getValue("Created-By"),
+		    is("Apache Maven Bundle Plugin"));
 	}
 
 }
