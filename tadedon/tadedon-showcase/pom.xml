@@ -100,7 +100,7 @@
                   <artifactId>gwt-servlet</artifactId>
                   <version>${gwt.version}</version>
                   <type>jar</type>
-                  <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib</outputDirectory>
+                  <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -144,8 +144,8 @@
           </modules>
           <runTarget>/</runTarget>
           <appEngineVersion>${appengine.version}</appEngineVersion>
-          <webappDirectory>${webappDirectory}</webappDirectory>
-          <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+          <hostedWebapp>${project.build.directory}/${project.artifactId}</hostedWebapp>
           <!--
             Normally the gwt maven plugin executes dev mode using a builtin
             jetty server. This config property instructs the gwt maven plugin
@@ -169,7 +169,7 @@
         </executions>
         <configuration>
           <!-- the exploded war structure ends up in target/${webappDirectory} -->
-          <webappDirectory>${webappDirectory}</webappDirectory>
+          <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
         </configuration>
       </plugin>
     </plugins>
