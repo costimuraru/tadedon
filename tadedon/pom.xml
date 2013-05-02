@@ -231,6 +231,16 @@
       </dependency>
       <dependency>
         <groupId>com.xemantic.tadedon</groupId>
+        <artifactId>tadedon-guice-lifecycle</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.xemantic.tadedon</groupId>
+        <artifactId>tadedon-guice-servlet</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.xemantic.tadedon</groupId>
         <artifactId>tadedon-guice-servlet-mock</artifactId>
         <version>${project.version}</version>
       </dependency>
