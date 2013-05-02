@@ -26,9 +26,6 @@
   <name>tadedon-showcase</name>
   <packaging>war</packaging>
   <description>Demo of tadedon features running on Google App Engine</description>
-  <properties>
-    <appengine.app.version>dev</appengine.app.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>com.google.appengine</groupId>
@@ -47,6 +44,14 @@
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
     </dependency>
 
     <!-- Test dependencies -->
@@ -112,14 +117,6 @@
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
           <archiveClasses>true</archiveClasses>
-          <webResources>
-            <!-- in order to interpolate version from pom into appengine-web.xml -->
-            <resource>
-              <directory>${basedir}/src/main/webapp/WEB-INF</directory>
-              <filtering>true</filtering>
-              <targetPath>WEB-INF</targetPath>
-            </resource>
-          </webResources>
         </configuration>
       </plugin>
       <plugin>
