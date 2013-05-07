@@ -28,6 +28,14 @@
   <description>Demo of tadedon features running on Google App Engine</description>
   <dependencies>
     <dependency>
+      <groupId>com.xemantic.tadedon</groupId>
+      <artifactId>tadedon-guice-servlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.xemantic.tadedon</groupId>
+      <artifactId>tadedon-gwt</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
     </dependency>
@@ -41,21 +49,12 @@
       <artifactId>requestfactory-server</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.sonatype.sisu.inject</groupId>
+      <artifactId>guice-assistedinject</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.xemantic.tadedon</groupId>
-      <artifactId>tadedon-gwt</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.xemantic.tadedon</groupId>
-      <artifactId>tadedon-guice-servlet</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -70,6 +69,11 @@
     <dependency>
       <groupId>com.google.web.bindery</groupId>
       <artifactId>requestfactory-apt</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
 
