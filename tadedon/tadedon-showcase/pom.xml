@@ -140,6 +140,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
           <archiveClasses>true</archiveClasses>
+         <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
         </configuration>
       </plugin>
       <plugin>
@@ -235,4 +236,21 @@
       </plugins>
     </pluginManagement>
   </build>
+  <profiles>
+    <profile>
+      <id>development</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <application.stage>DEVELOPMENT</application.stage>
+      </properties>
+    </profile>
+    <profile>
+      <id>production</id>
+      <properties>
+        <application.stage>PRODUCTION</application.stage>
+      </properties>
+    </profile>
+  </profiles>
 </project>
