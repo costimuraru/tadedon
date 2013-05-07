@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Xemantic
+ * Copyright 2010,2013 Xemantic
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,20 +20,27 @@ import junit.framework.TestSuite;
 
 import com.google.gwt.junit.tools.GWTTestSuite;
 import com.xemantic.tadedon.gwt.field.client.UiFieldAccessorGeneratorTest;
+import com.xemantic.tadedon.gwt.logging.client.i18n.LoggingConstantsTest;
 
 /**
  * GWT Test suite for tadedon-gwt module.
  * <p>
  * Created on Aug 12, 2010
  *
- * @author hshsce
+ * @author morisil
  */
 public class TadedonGwtTestSuite extends GWTTestSuite {
 
-	public static Test suite() {
-		TestSuite suite = new GWTTestSuite(TadedonGwtTestSuite.class.getName());
-		suite.addTestSuite(UiFieldAccessorGeneratorTest.class);
-		return suite;
-	}
+  /**
+   * Creates GWT test suite.
+   *
+   * @return the test suite.
+   */
+  public static Test suite() {
+    TestSuite suite = new GWTTestSuite(TadedonGwtTestSuite.class.getName());
+    suite.addTestSuite(UiFieldAccessorGeneratorTest.class);
+    suite.addTestSuite(LoggingConstantsTest.class);
+    return suite;
+  }
 
 }
