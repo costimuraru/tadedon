@@ -17,6 +17,14 @@
 -->
 <module rename-to="showcase">
   <inherits name="com.google.gwt.user.User" />
+  <inherits name="com.google.web.bindery.requestfactory.RequestFactory" />
+  <inherits name="com.google.gwt.inject.Inject" />
+  <inherits name="com.xemantic.tadedon.gwt.logging.Logging" />
   <source path="client"/>
   <entry-point class="com.xemantic.tadedon.showcase.app.client.TadedonShowcaseAppEntryPoint"/>
+
+  <inherits name="com.google.gwt.logging.Logging"/>
+  <set-property name="gwt.logging.logLevel" value="FINEST"/>
+  <set-property name="gwt.logging.popupHandler" value="DISABLED"/>
+
 </module>
