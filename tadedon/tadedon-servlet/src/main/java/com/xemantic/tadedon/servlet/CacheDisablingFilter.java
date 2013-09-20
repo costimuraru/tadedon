@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Xemantic
+ * Copyright 2010,2013 Xemantic
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,8 +20,7 @@ import java.util.Date;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -35,24 +34,23 @@ import javax.servlet.http.HttpServletResponse;
  * <p>
  * Created on Aug 6, 2010
  *
- * @author hshsce
+ * @author morisil
  */
 public class CacheDisablingFilter extends SimpleFilter {
 
-    private static final long ONE_DAY_IN_MILISECONDS = (1000L * 60L * 60L * 24L);
+  /** {@inheritDoc} */
+  @Override
+  public void doFilter(
+      HttpServletRequest request,
+      HttpServletResponse response,
+      FilterChain chain) throws IOException, ServletException {
 
-	/** {@inheritDoc} */
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if (response instanceof HttpServletResponse) {
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            Date now = new Date();
-            httpResponse.setDateHeader("Date", now.getTime());
-            httpResponse.setDateHeader("Expires", now.getTime() + ONE_DAY_IN_MILISECONDS);
-            httpResponse.setHeader("Pragma", "no-cache");
-            httpResponse.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
-        }
-        chain.doFilter(request, response);
-	}
+    chain.doFilter(request, response);
+    Date now = new Date();
+    response.setDateHeader("Date", now.getTime());
+    response.setHeader("Expires", "0");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+  }
 
 }
