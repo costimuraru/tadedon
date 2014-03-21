@@ -2,3 +2,10 @@
 .classpath
 .project
 target
+workspace.xml
+tasks.xml
+*.iws
+*.versionsBackup
+.idea
+*.iml
+*.ipr
