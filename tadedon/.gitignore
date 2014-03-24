@@ -1,6 +1,12 @@
 .settings
 .classpath
 .project
-.factorypath
 target
 gwt-unitCache
+workspace.xml
+tasks.xml
+*.iws
+*.versionsBackup
+.idea
+*.iml
+*.ipr
