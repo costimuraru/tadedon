@@ -159,6 +159,20 @@
           </links>
         </configuration>
       </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2.1</version>
+            <executions>
+                <execution>
+                    <id>attach-sources</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>jar-no-fork</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
   </build>
   <scm>
@@ -349,6 +363,12 @@
         <version>3.2.1</version>
       </dependency>
       <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>eclipselink</artifactId>
+        <version>2.4.0</version>
+      </dependency>
+
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.10</version>
@@ -360,18 +380,20 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
   <distributionManagement>
     <repository>
-      <id>xemantic-builds</id>
-      <name>xemantic-builds</name>
-      <url>dav:https://xemantic-builds.googlecode.com/svn/maven/</url>
+      <id>nexus</id>
+      <name>NCDC releases</name>
+      <url>http://nexus.ncdc:8180/nexus/content/repositories/releases</url>
     </repository>
     <snapshotRepository>
-      <id>xemantic-builds-snapshots</id>
-      <name>xemantic-builds-snapshots</name>
-      <url>dav:https://xemantic-builds.googlecode.com/svn/maven-snapshots/</url>
+      <id>nexus</id>
+      <name>NCDC snapshots</name>
+      <url>http://nexus.ncdc:8180/nexus/content/repositories/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
+
   <repositories>
     <repository>
       <id>eclipselink</id>

@@ -42,12 +42,21 @@ import com.google.inject.Inject;
  */
 public class TransactionalMethodInterceptor implements MethodInterceptor {
 
+    public interface ExceptionHandler {
+
+        Object handle(Throwable t,TransactionContext transactionContext, TransactionManager transactionManager,
+                    TransactionSupport transactionSupport) throws Throwable;
+
+    }
+
 	@Inject
 	private TransactionManager transactionManager;
 
 	@Inject
 	private TransactionSupport transactionSupport;
 
+    @Inject(optional = true)
+    private ExceptionHandler exceptionHandler;
 
 	/** {@inheritDoc} */
 	@Override
@@ -80,7 +89,18 @@ public class TransactionalMethodInterceptor implements MethodInterceptor {
 			return context.getMethodInvocation().proceed();
 		} catch (Throwable t) {
 			context.m_throwable = t;
-			throw t;
+            if (exceptionHandler != null) {
+                try {
+                    Object ret = exceptionHandler.handle(t,context,transactionManager,transactionSupport);
+                    context.m_throwable = null;
+                    return ret;
+                } catch (Throwable t1) {
+                    context.m_throwable = t1;
+                    throw t1;
+                }
+            } else {
+                throw t;
+            }
 		} finally {
 			try {
 				EntityTransaction emTrx = em.getTransaction();
